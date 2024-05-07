@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Champion Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .champion-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .champion-item {
+            margin-bottom: 5px;
+        }
+        .completed {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <h1>Champion Tracker</h1>
+    <p>Enter a champion name to mark it off the list:</p>
+    <input type="text" id="championInput">
+    <button onclick="markCompleted()">Mark Completed</button>
+    <div id="tracker"></div>
+        <ul class="champion-list" id="championList">
+        <li class="champion-item">Aatrox</li>
+        <li class="champion-item">Ahri</li>
+        <li class="champion-item">Akali</li>
+        <li class="champion-item">Akshan</li>
+        <li class="champion-item">Alistar</li>
+        <li class="champion-item">Amumu</li>
+        <li class="champion-item">Anivia</li>
+        <li class="champion-item">Annie</li>
+        <li class="champion-item">Aphelios</li>
+        <li class="champion-item">Ashe</li>
+        <li class="champion-item">Aurelion Sol</li>
+        <li class="champion-item">Azir</li>
+        <li class="champion-item">Bard</li>
+        <li class="champion-item">Bel'Veth</li>
+        <li class="champion-item">Blitzcrank</li>
+        <li class="champion-item">Brand</li>
+        <li class="champion-item">Braum</li>
+        <li class="champion-item">Briar</li>
+        <li class="champion-item">Caitlyn</li>
+        <li class="champion-item">Camille</li>
+        <li class="champion-item">Cassiopeia</li>
+        <li class="champion-item">Cho'Gath</li>
+        <li class="champion-item">Corki</li>
+        <li class="champion-item">Darius</li>
+        <li class="champion-item">Diana</li>
+        <li class="champion-item">Dr. Mundo</li>
+        <li class="champion-item">Draven</li>
+        <li class="champion-item">Ekko</li>
+        <li class="champion-item">Elise</li>
+        <li class="champion-item">Evelynn</li>
+        <li class="champion-item">Ezreal</li>
+        <li class="champion-item">Fiddlesticks</li>
+        <li class="champion-item">Fiora</li>
+        <li class="champion-item">Fizz</li>
+        <li class="champion-item">Galio</li>
+        <li class="champion-item">Gangplank</li>
+        <li class="champion-item">Garen</li>
+        <li class="champion-item">Gnar</li>
+        <li class="champion-item">Gragas</li>
+        <li class="champion-item">Graves</li>
+        <li class="champion-item">Gwen</li>
+        <li class="champion-item">Hecarim</li>
+        <li class="champion-item">Heimerdinger</li>
+        <li class="champion-item">Hwai</li>
+        <li class="champion-item">Illaoi</li>
+        <li class="champion-item">Irelia</li>
+        <li class="champion-item">Ivern</li>
+        <li class="champion-item">Janna</li>
+        <li class="champion-item">Jarvan IV</li>
+        <li class="champion-item">Jax</li>
+        <li class="champion-item">Jayce</li>
+        <li class="champion-item">Jhin</li>
+        <li class="champion-item">Jinx</li>
+        <li class="champion-item">Kai'Sa</li>
+        <li class="champion-item">Kalista</li>
+        <li class="champion-item">Karma</li>
+        <li class="champion-item">Karthus</li>
+        <li class="champion-item">Kassadin</li>
+        <li class="champion-item">Katarina</li>
+        <li class="champion-item">Kayle</li>
+        <li class="champion-item">Kayn</li>
+        <li class="champion-item">Kennen</li>
+        <li class="champion-item">Kha'Zix</li>
+        <li class="champion-item">Kindred</li>
+        <li class="champion-item">Kled</li>
+        <li class="champion-item">Kog'Maw</li>
+        <li class="champion-item">K'Sante</li>
+        <li class="champion-item">LeBlanc</li>
+        <li class="champion-item">Lee Sin</li>
+        <li class="champion-item">Leona</li>
+        <li class="champion-item">Lillia</li>
+        <li class="champion-item">Lissandra</li>
+        <li class="champion-item">Lucian</li>
+        <li class="champion-item">Lulu</li>
+        <li class="champion-item">Lux</li>
+        <li class="champion-item">Malphite</li>
+        <li class="champion-item">Malzahar</li>
+        <li class="champion-item">Maokai</li>
+        <li class="champion-item">Master Yi</li>
+        <li class="champion-item">Milio</li>
+        <li class="champion-item">Miss Fortune</li>
+        <li class="champion-item">Mordekaiser</li>
+        <li class="champion-item">Morgana</li>
+        <li class="champion-item">Nami</li>
+        <li class="champion-item">Nasus</li>
+        <li class="champion-item">Nautilus</li>
+        <li class="champion-item">Neeko</li>
+        <li class="champion-item">Nidalee</li>
+        <li class="champion-item">Nilah</li>
+        <li class="champion-item">Nocturne</li>
+        <li class="champion-item">Nunu & Willump</li>
+        <li class="champion-item">Olaf</li>
+        <li class="champion-item">Orianna</li>
+        <li class="champion-item">Ornn</li>
+        <li class="champion-item">Pantheon</li>
+        <li class="champion-item">Poppy</li>
+        <li class="champion-item">Pyke</li>
+        <li class="champion-item">Qiyana</li>
+        <li class="champion-item">Quinn</li>
+        <li class="champion-item">Rakan</li>
+        <li class="champion-item">Rammus</li>
+        <li class="champion-item">Rek'Sai</li>
+        <li class="champion-item">Rell</li>
+        <li class="champion-item">Renata Glasc</li>
+        <li class="champion-item">Renekton</li>
+        <li class="champion-item">Rengar</li>
+        <li class="champion-item">Riven</li>
+        <li class="champion-item">Rumble</li>
+        <li class="champion-item">Ryze</li>
+        <li class="champion-item">Samira</li>
+        <li class="champion-item">Sejuani</li>
+        <li class="champion-item">Senna</li>
+        <li class="champion-item">Seraphine</li>
+        <li class="champion-item">Sett</li>
+        <li class="champion-item">Shaco</li>
+        <li class="champion-item">Shen</li>
+        <li class="champion-item">Shyvana</li>
+        <li class="champion-item">Singed</li>
+        <li class="champion-item">Sion</li>
+        <li class="champion-item">Sivir</li>
+        <li class="champion-item">Skarner</li>
+        <li class="champion-item">Smolder</li>
+        <li class="champion-item">Sona</li>
+        <li class="champion-item">Soraka</li>
+        <li class="champion-item">Swain</li>
+        <li class="champion-item">Sylas</li>
+        <li class="champion-item">Syndra</li>
+        <li class="champion-item">Tahm Kench</li>
+        <li class="champion-item">Taliyah</li>
+        <li class="champion-item">Talon</li>
+        <li class="champion-item">Taric</li>
+        <li class="champion-item">Teemo</li>
+        <li class="champion-item">Thresh</li>
+        <li class="champion-item">Tristana</li>
+        <li class="champion-item">Trundle</li>
+        <li class="champion-item">Tryndamere</li>
+        <li class="champion-item">Twisted Fate</li>
+        <li class="champion-item">Twitch</li>
+        <li class="champion-item">Udyr</li>
+        <li class="champion-item">Urgot</li>
+        <li class="champion-item">Varus</li>
+        <li class="champion-item">Vayne</li>
+        <li class="champion-item">Veigar</li>
+        <li class="champion-item">Vel'Koz</li>
+        <li class="champion-item">Vex</li>
+        <li class="champion-item">Vi</li>
+        <li class="champion-item">Viego</li>
+        <li class="champion-item">Viktor</li>
+        <li class="champion-item">Vladimir</li>
+        <li class="champion-item">Volibear</li>
+        <li class="champion-item">Warwick</li>
+        <li class="champion-item">Wukong</li>
+        <li class="champion-item">Xayah</li>
+        <li class="champion-item">Xerath</li>
+        <li class="champion-item">Xin Zhao</li>
+        <li class="champion-item">Yasuo</li>
+        <li class="champion-item">Yone</li>
+        <li class="champion-item">Yorick</li>
+        <li class="champion-item">Yuumi</li>
+        <li class="champion-item">Zac</li>
+        <li class="champion-item">Zed</li>
+        <li class="champion-item">Zeri</li>
+        <li class="champion-item">Ziggs</li>
+        <li class="champion-item">Zilean</li>
+        <li class="champion-item">Zoe</li>
+        <li class="champion-item">Zyra</li>
+    </ul>
+
+    <script>
+        // Load completed champions from localStorage on page load
+        window.onload = function() {
+            var completedChampions = JSON.parse(localStorage.getItem('completedChampions')) || [];
+            var list = document.getElementById("championList");
+            var champions = list.getElementsByTagName("li");
+            
+            for (var i = 0; i < champions.length; i++) {
+                var championName = champions[i].textContent.trim();
+                if (completedChampions.includes(championName)) {
+                    champions[i].classList.add("completed");
+                }
+            }
+            updateTracker();
+        };
+
+        // Function to handle pressing Enter in the input field
+        document.getElementById("championInput").addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                markCompleted();
+            }
+        });
+
+        function markCompleted() {
+            var input = document.getElementById("championInput").value.trim();
+            var list = document.getElementById("championList");
+            var champions = list.getElementsByTagName("li");
+            var completedChampions = JSON.parse(localStorage.getItem('completedChampions')) || [];
+
+            for (var i = 0; i < champions.length; i++) {
+                if (champions[i].textContent.trim().toLowerCase() === input.toLowerCase()) {
+                    champions[i].classList.toggle("completed");
+                    var championName = champions[i].textContent.trim();
+                    var index = completedChampions.indexOf(championName);
+                    if (index === -1) {
+                        completedChampions.push(championName);
+                    } else {
+                        completedChampions.splice(index, 1);
+                    }
+                    localStorage.setItem('completedChampions', JSON.stringify(completedChampions));
+                    document.getElementById("championInput").value = ""; // Clear the input field
+                    updateTracker();
+                    break;
+                }
+            }
+        }
+
+        function updateTracker() {
+            var completedChampions = JSON.parse(localStorage.getItem('completedChampions')) || [];
+            var totalChampions = document.getElementById("championList").getElementsByTagName("li").length;
+            var championsLeft = totalChampions - completedChampions.length;
+            document.getElementById("tracker").innerHTML = "Champions Done: " + completedChampions.length + " / Total Champions: " + totalChampions + " / Champions Left: " + championsLeft;
+        }
+    </script>
+</body>
+</html>
